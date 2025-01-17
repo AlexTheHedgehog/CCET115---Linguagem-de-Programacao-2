@@ -1,4 +1,5 @@
 class Conta:
+    #init
     def __init__(self, n:int, t:str, s:float, l:float): #Método de inicialização
         self.numero = n
         self.titular = t
