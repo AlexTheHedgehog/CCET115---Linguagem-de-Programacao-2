@@ -1,11 +1,17 @@
+from cliente import Cliente
 from conta import Conta
 
+cliente1 = Cliente('Fulano', '123')
+cliente2 = Cliente('Beltrano', '456')
 
-c1 = Conta(2, 'Daniel', 1017.98, 400) #Cria uma instância da classe Conta
-print(c1)
-print(f'Conta de {c1.titular}')
-print(c1.ver_saldo())
-c2 = Conta(3, 'Juan', 0, 0)
-c1.trasferir(30.55, c2)
-print(f'Conta de {c2.titular}')
-print(c2.ver_saldo())
+conta1 = Conta(101, 0, 0)
+conta2 = Conta(102, 100, 100)
+
+cliente1.adicionar_conta(conta1, 'Titular')
+cliente1.adicionar_conta(conta2, 'Titular')
+
+cliente1.listar_contas()
+
+cliente2.adicionar_conta(conta1, 'Dependente')
+
+conta1.listar_clientes()
