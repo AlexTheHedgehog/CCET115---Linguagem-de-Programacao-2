@@ -1,9 +1,21 @@
 class Conta:
+    _total_contas = 0    #atributo de classe
+    __slots__ = ['_numero', '_titular', '_saldo', '_limite']
     def __init__(self, numero, titular, saldo, limite):
         self._numero = numero
         self._titular = titular
         self._saldo = saldo
         self._limite = limite
+        Conta._total_contas += 1
+        
+    #método de instância
+    def get_total_contas(self):
+        return Conta._total_contas
+    
+    #método estático
+    @staticmethod
+    def get_total_contas_estatico(cls):
+        return cls._total_contas
     
     #forma pytonica
     @property
