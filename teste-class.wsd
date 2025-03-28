@@ -1,0 +1,41 @@
+@startuml 'Teste'
+
+class Conta {
+    - titular: Cliente
+    - numero: int
+    - saldo: float
+    - limite: float
+    + sacar(valor)
+    + depositar(valor)
+    + transferir(valor, Conta)
+}
+
+class Cliente {
+    - cpf: str
+    - nome: str
+}
+
+class Historico {
+    - transacoes: []
+}
+
+class Emprestimo {
+    - valor: float
+    - parcelas: int
+    - valor_parcela: float
+    - parcelas_restantes: int
+    - conta: Conta
+    + pagar_parcela()
+}
+
+class Agencia {
+    - nome: str
+    - status: boolean
+    - contas: []
+}
+
+Cliente "0..1" -- "1..1" Conta : possui
+Conta "1..1" *-- "1..1" Historico
+Conta "1..1" o-- "0..*" Emprestimo
+Agencia "1..1" -- "0..*" Conta
+@enduml

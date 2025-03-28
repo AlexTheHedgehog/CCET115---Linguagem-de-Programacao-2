@@ -1,0 +1,44 @@
+@startuml
+
+abstract class Funcionario {
+    + {abstract} bonificacao()
+}
+
+class Diretor {
+    + bonificacao()
+}
+
+class Secretario {
+    + bonificacao()
+}
+
+interface Autenticavel {
+    + {abstract} autenticar()
+}
+
+class Cliente {
+    + autenticar()
+}
+
+class Estagiario {
+    + autenticar()
+}
+
+interface HoraExtra {
+
+}
+
+class Presidente {
+
+}
+
+Autenticavel <|.. Cliente
+Funcionario <|-- Diretor
+Funcionario <|-- Secretario
+'Funcionario <|-- Estagiario'
+'Autenticavel <|-- Funcionario'
+Autenticavel <|.. Estagiario
+Autenticavel <|.. Secretario
+Autenticavel <|.. Diretor
+HoraExtra <|.. Secretario
+Funcionario <|-- Presidente

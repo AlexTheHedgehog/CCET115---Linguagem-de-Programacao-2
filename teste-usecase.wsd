@@ -1,0 +1,18 @@
+@startuml Teste
+(Abrir Conta)
+usecase (Encerrar Conta)
+:Funcionario:
+actor Cliente
+
+Cliente -- (Abrir Conta)
+Cliente -- (Encerrar Conta)
+Cliente -- (Sacar)
+Cliente -- (Depositar)
+(Abrir Conta) -- Funcionario
+(Encerrar Conta) -- Funcionario
+(Sacar) ..> (Registrar Movimento) : <<include>>
+(Depositar) ..> (Registrar Movimento) : <<include>>
+(Sacar) ..> (Registrar Movimento) : <<extend>>
+(Depositar) ..> (Registrar Movimento) : <<extend>>
+
+@enduml

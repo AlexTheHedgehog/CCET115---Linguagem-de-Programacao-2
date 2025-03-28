@@ -1,0 +1,57 @@
+@startuml
+
+class Actor {
+    - Sprite
+    - CollisionShape2D
+    + Attributes (Resource)
+}
+
+class PlayableCharacter {
+    + StateMachine
+    + Controller
+}
+
+class NPC {
+    + StateMachine
+    + BehaviourAI
+}
+
+class Controller {
+    - move
+    - attack
+    - special_attack
+    - jump
+    - stop
+    + _unhandled_input (event: InputEvent)
+}
+
+class StateMachine {
+    - states: Array[State]
+    - current_state: State
+    - is_changing_state: bool = false
+    + initialize(parent: Actor) -> void
+    + set_controller_signals() -> void
+    + update(delta: float) -> void
+    + change_state(next: int) -> void
+    + funções pros inputs da classe controller
+}
+
+class Estado {
+    + enter() -> void
+    + update(delta: float) -> void
+    + exit() -> void
+    + on_move(direction: int) -> void
+    + on_jump() -> void
+}
+
+CharacterBody2D <|-- Actor
+Actor <-- NPC
+Actor <-- PlayableCharacter
+Controller *--* PlayableCharacter
+Node <|-- Controller
+StateMachine *--* NPC
+StateMachine *--* PlayableCharacter
+Resource <|-- StateMachine
+State <|-- Estado
+Array *-- "Vários" Estado
+Array --* StateMachine
