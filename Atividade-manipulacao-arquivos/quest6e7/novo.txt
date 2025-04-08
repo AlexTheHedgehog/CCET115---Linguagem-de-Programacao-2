@@ -1,0 +1,6 @@
+Média do aluno Daniel: 8.4
+Média do aluno Juan: 7.0
+Média do aluno Igor: 6.5
+Média do aluno Samuel: 8.4
+Média do aluno Gabs: 6.5
+Média do aluno Hayssa: 7.0

@@ -1,0 +1,7 @@
+original = open('original.txt', 'r', encoding='utf-8')
+conteudo = original.read()
+original.close()
+conteudo_novo = ''.join([i if i not in 'AEIOUaeiou' else '*' for i in conteudo])
+novo = open('novo.txt', 'w', encoding='utf-8')
+novo.write(conteudo_novo)
+novo.close()
